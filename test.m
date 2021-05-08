@@ -1,10 +1,10 @@
 clear;
 clc;
 
-img = imread('multi_illumination_test_mip2_jpg/everett_kitchen5/dir_0_mip2.jpg');
+img = imread('../gateway.jpg');
 % img = imread('multi_illumination_test_mip2_jpg/everett_dining1/dir_0_mip2.jpg');
-% patchsize = 16;
-patchsize = 10;
+patchsize = 16;
+% patchsize = 20;
 size(img)
 figure();
 imshow(img);
