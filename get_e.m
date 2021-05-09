@@ -1,4 +1,4 @@
-function [ex, ey] = get_e(patch, I_A);
+function [ex, ey] = get_e(patch, I_A)
     actual = patch(1:size(patch, 1)-1, 1:size(patch, 2)-1);
     right = patch(1:size(patch, 1)-1, 2:size(patch, 2));
     down = patch(2:size(patch, 1), 1:size(patch, 2)-1);
