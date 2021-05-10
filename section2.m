@@ -1,7 +1,7 @@
 clear
 clc;
 
-img = imread('trial.png');
+img = imread('dataset/1.png');
 
 patchsize = 10;
 

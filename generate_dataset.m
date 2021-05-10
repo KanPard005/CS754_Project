@@ -15,7 +15,10 @@ if ~exist('dataset', 'dir')
     mkdir('dataset');
 end
 num = 1000;
-for i = 1:num
-    noisy_img = ((1 - scale) * img + poissrnd(scale * img)) / 255;
-    imwrite(noisy_img, sprintf('dataset/%d.png', i));
-end
+% for i = 1:num
+%     noisy_img = ((1 - scale) * img + poissrnd(scale * img)) / 255;
+%     imwrite(noisy_img, sprintf('dataset/%d.png', i));
+% end
+noisy_img = ((1 - scale) * img + poissrnd(scale * img)) / 255;
+imshow(noisy_img);
+imwrite(noisy_img, 'trial.png');
