@@ -1,7 +1,7 @@
 clear;
 clc;
 
-img = imread('datsetnew/1.png');
+img = imread('datasetnew/1.png');
 
 figure();
 subplot(1,3,1)

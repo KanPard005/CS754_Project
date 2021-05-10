@@ -39,8 +39,8 @@ for al=1:1
     detected = ((meanimgs-acceptance) > testimg) | (testimg > (meanimgs+acceptance));
     subplot(1,2,2)
     imshow(detected);
-    title('Background detected');
-%     title(['\alpha= ',num2str(alpha),' and threshold= ',num2str(dev(al))]);
+%     title('Background detected');
+    title(['\alpha= ',num2str(alpha),' and threshold= ',num2str(dev(al))]);
 %     variance = (sum(sum((detected-GT(:,:,70)).^2)))/(size(detected,1)*size(detected,2)-1);
 %     fprintf(['The variance obtained using alpha= ',num2str(alpha), ' and range= ', num2str(dev(al)),' is',num2str(variance),'\n']);
 
