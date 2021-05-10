@@ -14,6 +14,6 @@ function I_A = get_acceptance(mu_1, mu_2, alpha)
         term = e * term2 * term3;
         frac = frac + term;
     end
-%     I_A = min(i-1, 100);
-    I_A = i-1;
+%     I_A = max(i-1, 5);
+    I_A =  i-1;
 end

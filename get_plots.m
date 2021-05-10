@@ -14,4 +14,7 @@ function get_plots(patch)
     histogram(diff(:));
     plot(x, skellam * size(diff, 1) * size(diff, 2));
     plot(x, normpdf(x) * size(diff, 1) * size(diff, 2));
+    legend('Histrogram', 'Skellam distr.', 'Gaussian distr.');
+    xlabel('Intensity difference');
+    ylabel('Frequency');
 end
