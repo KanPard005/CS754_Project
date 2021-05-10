@@ -1,6 +1,6 @@
 clear;
 clc;
-n=200;
+n=10;
 img1 = imread('datasetnew/1.png');
 allimgs = zeros(size(img1,1),size(img1,2),3,n);
 
@@ -15,9 +15,10 @@ mu1imgs = zeros(size(img1));
 mu2imgs = zeros(size(img1));
 acceptance = zeros(size(img1));
 
-alpha = [0.05,0.07];
+% alpha = [0.05,0.07];
+alpha = [1e-4];
 
-for al=1:2
+for al=1:1
     for x=1:size(allimgs,1)
         for y=1:size(allimgs,2)
             for channel=1:3
@@ -33,9 +34,8 @@ for al=1:2
     testimg = imread('bkg.png');
 
     detected = ((meanimgs-acceptance) > testimg) | (testimg > (meanimgs+acceptance));
-
     imshow(detected(:,:,1)+detected(:,:,2)+detected(:,:,3));
-    title('%i',al);
+    title('%d',al);
 end
 
 
