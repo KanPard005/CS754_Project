@@ -15,9 +15,9 @@ mu1imgs = zeros(size(img1));
 mu2imgs = zeros(size(img1));
 acceptance = zeros(size(img1));
 
-alpha = [0.05,0.07];
+alpha = [0.0001];
 
-for al=1:2
+for al=1:1
     for x=1:size(allimgs,1)
         for y=1:size(allimgs,2)
             for channel=1:3
@@ -26,7 +26,6 @@ for al=1:2
                 acceptance(x,y,channel) = get_acceptance(mu1imgs(x,y,channel), mu2imgs(x,y,channel),alpha(al));
             end
         end 
-        x
     end
     
     figure()

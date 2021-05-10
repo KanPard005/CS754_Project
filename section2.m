@@ -5,12 +5,10 @@ img = imread('datasetnew/1.png');
 
 patchsize = 10;
 
-
 figure();
-subplot(2,3,1);
 imshow(img);
+title('Input image');
 
-size(img)
 img = double(img);
 imgr = img(1:size(img, 1),1:size(img, 2),1);
 
@@ -26,19 +24,12 @@ for i=0:size(imgr,1)/patchsize-1
     for j=0:size(imgr,2)/patchsize-1
         patch = imgr(patchsize*i+1: patchsize*(i+1), patchsize*j+1: patchsize*(j+1));
         Imean = sum(sum(patch))/(patchsize*patchsize);
-%         var = sum(sum((patch - Imean).^2))/(patchsize*patchsize-1);
-%         
-%         vars(k) = var;
         intensities(k) = Imean;
         [mu1s(k), mu2s(k)] = get_parameters(patch,patchsize,patchsize);
        
         k=k+1; 
     end
 end
-
-% subplot(2,3,2);
-% scatter(intensities,vars,25,'filled');
-% ylim([0,100]);
 
 [intensities, sortId] = sort(intensities, 'descend');
 mu1s = mu1s(sortId);
@@ -58,19 +49,24 @@ for i=1:size(intensities,2)
     end
 end
 
-subplot(2,3,2)
+figure()
+subplot(2,2,1)
 p1 = scatter(plotint,plotmu1s,25,'filled');
 hold on;
 h1 = lsline;
 h1.Color = 'r';
+xlabel('r intensity')
+ylabel('Skellam parameter(\mu^{(1)})');
+title('Intensity vs skellam parameter in spatial domain')
 
 
-subplot(2,3,3)
+subplot(2,2,2)
 scatter(plotint,plotmu2s,25,'filled');
 h2 = lsline;
 h2.Color = 'r';
-% ylim([0,50]);
-
+xlabel('r intensity')
+ylabel('Skellam parameter(\mu^{(2)})');
+title('Intensity vs skellam parameter in spatial domain')
 
 
 %temporal 
@@ -111,11 +107,21 @@ for i=1:size(tempimgs,1)
 end
 
 
-subplot(2,3,6)
+subplot(2,2,3)
 scatter(temp_meanint(:),temp_mu1s(:),25,'filled');
 hold on;
 h3 = lsline;
 h3.Color = 'r';
+xlabel('r intensity')
+ylabel('Skellam parameter(\mu^{(1)})');
+title('Intensity vs skellam parameter in temporal domain')
 
-
+subplot(2,2,4)
+scatter(temp_meanint(:),temp_mu2s(:),25,'filled');
+hold on;
+h3 = lsline;
+h3.Color = 'r';
+xlabel('r intensity')
+ylabel('Skellam parameter(\mu^{(2)})');
+title('Intensity vs skellam parameter in temporal domain')
 
