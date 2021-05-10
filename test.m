@@ -1,12 +1,20 @@
 clear;
 clc;
 
-img = imread('trial1.png');
-patchsize = 80;
-alpha = 0.002;
+% Values for trial1.png
+% img = imread('note.png');
+% patchsize = 150;
+% alpha = 0.001;
+
+% Values for note.png
+img = imread('note.png');
+patchsize = 20;
+alpha = 1e-12;
+
 size(img)
 figure();
 imshow(img);
+title("Original image");
 img = double(img);
 
 edge_img = zeros(size(img, 1) - 1, size(img, 2) - 1);
@@ -17,3 +25,4 @@ end
 
 figure();
 imshow(edge_img);
+title("Detected Edges");
