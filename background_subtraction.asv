@@ -1,10 +1,10 @@
 clc;
-n=170;
-img1 = imread('peds/frame_1.jpg');
+n=246;
+img1 = imread('traf/frame_1.jpg');
 allimgs = zeros(size(img1,1),size(img1,2),n);
 
 for i=1:n
-    loadimg = imread(sprintf('peds/frame_%d.jpg', i));
+    loadimg = imread(sprintf('flock/frame_%d.jpg', i));
     double(loadimg);
     allimgs(:,:,i) = loadimg;
 end
@@ -33,7 +33,7 @@ for al=1:1
     
     figure()
     subplot(1,2,1)
-    testimg = imread('peds/frame_70.jpg');
+    testimg = imread('flock/frame_10.jpg');
     imshow(testimg);
     title('original frame');
     detected = ((meanimgs-acceptance) > testimg) | (testimg > (meanimgs+acceptance));

@@ -1,10 +1,7 @@
 clear
 clc;
 
-=======
 img = imread('datasetnew/1.png');
->>>>>>> b64d5735f877768fc4ea363fe0aeb7567561031b
-
 patchsize = 10;
 
 figure();
