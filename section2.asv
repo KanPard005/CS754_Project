@@ -1,9 +1,7 @@
 clear
 clc;
 
-=======
 img = imread('datasetnew/1.png');
->>>>>>> b64d5735f877768fc4ea363fe0aeb7567561031b
 
 patchsize = 10;
 
@@ -61,16 +59,16 @@ for i=1:size(intensities,2)
 end
 
 subplot(2,3,2)
-p1 = scatter(plotint,plotmu1s,25,'filled');
+scatter(plotint,plotmu1s,25,'filled');
 hold on;
-h1 = lsline;
-h1.Color = 'r';
-
+P = polyfit(plotint,plotmu1s,1);
+yfit = P(1)*x+P(2);
+plot(x,yfit,'r-.');
 
 subplot(2,3,3)
 scatter(plotint,plotmu2s,25,'filled');
-h2 = lsline;
-h2.Color = 'r';
+hold on;
+lsline;
 % ylim([0,50]);
 
 
@@ -115,9 +113,6 @@ end
 
 subplot(2,3,6)
 scatter(temp_meanint(:),temp_mu1s(:),25,'filled');
-hold on;
-h3 = lsline;
-h3.Color = 'r';
 
 
 

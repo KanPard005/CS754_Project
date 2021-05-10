@@ -1,6 +1,6 @@
 A = 20 + 10 * randi([2 20], 3, 20);
 A = A + repmat([-20 20], 3, 10);
-patchsize = 200;
+patchsize = 40;
 img = zeros(4 * patchsize, 5 * patchsize, 3);
 
 for i = 0:3
@@ -11,14 +11,11 @@ for i = 0:3
 end
 
 scale = 1/50;
-if ~exist('dataset', 'dir')
-    mkdir('dataset');
+if ~exist('datasetnew', 'dir')
+    mkdir('datasetnew');
 end
-num = 1000;
-% for i = 1:num
-%     noisy_img = ((1 - scale) * img + poissrnd(scale * img)) / 255;
-%     imwrite(noisy_img, sprintf('dataset/%d.png', i));
-% end
-noisy_img = ((1 - scale) * img + poissrnd(scale * img)) / 255;
-imshow(noisy_img);
-imwrite(noisy_img, 'trial.png');
+num = 200;
+for i = 1:num
+    noisy_img = ((1 - scale) * img + poissrnd(scale * img)) / 255;
+    imwrite(noisy_img, sprintf('datasetnew/%d.png', i));
+end
